@@ -1,26 +1,17 @@
-function openModal(modalId) {
-  document.getElementById(modalId).style.display = "block";
+// Function to open the modal
+function openModal() {
+  document.getElementById("contactModal").style.display = "block";
 }
 
-function closeModal(modalId) {
-  document.getElementById(modalId).style.display = "none";
+// Function to close the modal
+function closeModal() {
+  document.getElementById("contactModal").style.display = "none";
 }
 
-document
-  .getElementById("registerForm")
-  .addEventListener("submit", function (event) {
-    event.preventDefault(); // Prevent default form submission
-
-    // Get form data
-    const name = document.getElementById("name").value;
-    const email = document.getElementById("email").value;
-    const clinic = document.getElementById("clinic").value;
-
-    // Send email (replace with your actual email sending logic)
-    console.log("Sending email with data:", { name, email, clinic });
-    // You'll need to use a server-side language or a service like EmailJS to actually send the email
-
-    // Close the modal and optionally display a success message
-    closeModal("registerModal");
-    alert("Thank you for your interest! We will contact you soon.");
-  });
+// Optional: Close the modal if the user clicks outside of it
+window.onclick = function (event) {
+  var modal = document.getElementById("contactModal");
+  if (event.target == modal) {
+    modal.style.display = "none";
+  }
+};
